@@ -26,7 +26,8 @@ const LoginForm = (props) => {
     }).then((response) => {
       console.log(response.headers["x-access-token"]);
       localStorage.setItem("token", response.headers["x-access-token"]);
-      history.push("/characters");
+      localStorage.setItem("username", username);
+      history.push("/post");
     });
   };
 

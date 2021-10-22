@@ -9,24 +9,35 @@ const Header = () => {
   const menuBurger = () => {
     setShowLink((showLink) => !showLink);
   };
+  const reset = () => {
+    setShowLink(false);
+  };
   return (
     <DivHeader>
       <StyledBurgerMenu onClick={menuBurger}>
         <Logo src={logo}></Logo>
         <StyledBurger></StyledBurger>
       </StyledBurgerMenu>
-      <StyledNav>
-        {showLink && <StyledLink to="/login">Login</StyledLink>}
-      </StyledNav>
+      <div>
+        <StyledNav>
+          {showLink && (
+            <StyledLink onClick={reset} to="/login">
+              Login
+            </StyledLink>
+          )}
+        </StyledNav>
+      </div>
       <Titre>Reddit: The front page of internet</Titre>
     </DivHeader>
   );
 };
 
 const DivHeader = styled.div`
+  position: fixed;
   left: 0;
   top: 0;
   display: flex;
+  align-items: center;
   height: 50px;
   width: 100%;
   background-color: #1a1a1b;
@@ -59,12 +70,11 @@ const StyledBurger = styled.span`
 `;
 
 const StyledNav = styled.nav`
-  display: flex;
   position: absolute;
-  right: 50%;
-  top: 90%;
+  right: 0;
+  top: 100%;
   height: 100%;
-  width: 50%;
+  width: 100%;
 `;
 
 const StyledLink = styled(Link)`

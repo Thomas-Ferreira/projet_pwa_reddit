@@ -8,7 +8,7 @@
     // tab = 2 spaces
     "editor.tabSize": 2,
     // allow prettier to fix eslint 
-    // "eslint.autoFixOnSave": true,
+    //"eslint.autoFixOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     }
