@@ -18,15 +18,13 @@ const Header = () => {
         <Logo src={logo}></Logo>
         <StyledBurger></StyledBurger>
       </StyledBurgerMenu>
-      <div>
-        <StyledNav>
-          {showLink && (
-            <StyledLink onClick={reset} to='/login'>
-              Login
-            </StyledLink>
-          )}
-        </StyledNav>
-      </div>
+      <StyledNav>
+        {showLink && (
+          <StyledLink onClick={reset} to='/login'>
+            Login
+          </StyledLink>
+        )}
+      </StyledNav>
       <Titre>Reddit: The front page of internet</Titre>
     </DivHeader>
   )
@@ -37,7 +35,6 @@ const DivHeader = styled.header`
   left: 0;
   top: 0;
   display: flex;
-  align-items: center;
   height: 50px;
   width: 100%;
   background-color: #1a1a1b;
@@ -69,12 +66,13 @@ const StyledBurger = styled.span`
   background-color: #1a1a1b;
 `
 
-const StyledNav = styled.nav`
-  position: absolute;
+const StyledNav = styled.div`
+  width: 75%;
+  height: 500vh;
+  z-index: 1;
+  position: fixed;
+  top: 0;
   right: 0;
-  top: 100%;
-  height: 100%;
-  width: 100%;
 `
 
 const StyledLink = styled(Link)`

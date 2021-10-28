@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 body{
-  background-color: #000000;
+  background-color: #030303;
   overscroll-behavior: none;
   color: #ffffff;
   padding-top: 50px;
