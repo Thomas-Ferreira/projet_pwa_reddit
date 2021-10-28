@@ -9,20 +9,24 @@ const FrontPage = () => {
   return (
     <div>
       <StyledDiv>
-        <img src={logo}></img>
         <h3>Bienvenue</h3>
-        <p>Il existe une commuanuté Reddit pour chaque sujet imaginable</p>
+        <StyledP>
+          Il existe une commuanuté Reddit pour chaque sujet imaginable
+        </StyledP>
       </StyledDiv>
       <button onClick={() => history.push('/Login')}>Se Connecter</button>
+      <button onClick={() => history.push('/post')}>Accéder au Post</button>
     </div>
   )
 }
 
 const StyledDiv = styled.div`
-  padding: 10%;
   width: 100%;
   align-items: center;
   background-color: #030303;
+`
+const StyledP = styled.p`
+  width: 100%;
 `
 
 export default FrontPage

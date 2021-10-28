@@ -46,7 +46,7 @@ const Post = () => {
                 <Logo src={logo}></Logo>
                 <p>{post.sub}</p>
                 <div>
-                  <p>Published by {post.author}</p>
+                  <p> Published by {post.author}</p>
                 </div>
               </StyledPost>
               <StyledTitle>
@@ -69,7 +69,6 @@ const StyledPost = styled.div`
   display: flex;
   justify-content: start;
   width: 100%;
-  flex-wrap: wrap;
 `
 
 const Container = styled.div`

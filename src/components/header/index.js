@@ -5,12 +5,15 @@ import logo from '../../logo_reddit.png'
 
 const Header = () => {
   const [showLink, setShowLink] = useState(false)
+  const [isOnline, setIsOnline] = useState(false)
+
+  console.log(showLink)
 
   const menuBurger = () => {
     setShowLink(showLink => !showLink)
   }
   const reset = () => {
-    setShowLink(false)
+    setShowLink(showLink => !showLink)
   }
   return (
     <DivHeader>
@@ -18,13 +21,15 @@ const Header = () => {
         <Logo src={logo}></Logo>
         <StyledBurger></StyledBurger>
       </StyledBurgerMenu>
-      <StyledNav>
-        {showLink && (
+      {showLink && (
+        <StyledNav>
           <StyledLink onClick={reset} to='/login'>
+            <StyledButton>{isOnline ? 'Online' : 'Offline'}</StyledButton>
             Login
           </StyledLink>
-        )}
-      </StyledNav>
+        </StyledNav>
+      )}
+
       <Titre>Reddit: The front page of internet</Titre>
     </DivHeader>
   )
@@ -68,11 +73,11 @@ const StyledBurger = styled.span`
 
 const StyledNav = styled.div`
   width: 75%;
-  height: 500vh;
+  height: 100vh;
   z-index: 1;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
 `
 
 const StyledLink = styled(Link)`
@@ -84,6 +89,13 @@ const StyledLink = styled(Link)`
   color: #ffffff;
   background-color: #1a1a1b;
   text-decoration: none;
+`
+
+const StyledButton = styled.button`
+  height: 30px;
+  outline: none;
+  background-color: #000000;
+  color: #ffffff;
 `
 
 export default Header

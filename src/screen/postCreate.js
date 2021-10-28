@@ -14,6 +14,7 @@ const PostCreate = () => {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [subreddit, setSubreddit] = useState('')
+  const [image, setImage] = useState('')
 
   useEffect(() => {
     /*console.log(title)
@@ -120,6 +121,7 @@ const StyledSelect = styled.select`
   background-color: #000000;
   color: #ffffff;
   border-radius: 0;
+  margin-bottom: 12px;
   outline: none;
 `
 
