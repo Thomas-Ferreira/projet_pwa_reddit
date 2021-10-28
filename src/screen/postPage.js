@@ -1,5 +1,5 @@
-import React from "react";
-import Post from "../components/post";
+import React from 'react'
+import Post from '../components/post'
 
 const PostPage = () => {
   return (
@@ -8,7 +8,7 @@ const PostPage = () => {
       <p>créer un post</p>
       <Post></Post>
     </div>
-  );
-};
+  )
+}
 
-export default PostPage;
+export default PostPage

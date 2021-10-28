@@ -1,73 +1,72 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import axios from "axios";
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 
-const LoginForm = (props) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const history = useHistory();
-  useEffect(() => {}, [username]);
+const LoginForm = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const history = useHistory()
+  useEffect(() => {}, [username])
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = e => {
+    e.preventDefault()
     if (username.length < 3) {
-      alert("Please enter big username");
-      return;
+      alert('Please enter big username')
+      return
     }
     axios({
-      method: "POST",
-      url: "https://easy-login-api.herokuapp.com/users/login",
+      method: 'POST',
+      url: 'https://easy-login-api.herokuapp.com/users/login',
       data: {
         username: username,
-        password: password,
-      },
-    }).then((response) => {
-      console.log(response.headers["x-access-token"]);
-      localStorage.setItem("token", response.headers["x-access-token"]);
-      localStorage.setItem("username", username);
-      history.push("/post");
-    });
-  };
+        password: password
+      }
+    }).then(response => {
+      console.log(response.headers['x-access-token'])
+      localStorage.setItem('token', response.headers['x-access-token'])
+      localStorage.setItem('username', username)
+      history.push('/post')
+    })
+  }
 
   return (
     <FormContainer>
       <StyledForm onSubmit={onSubmit}>
         <StyledInput
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          name="username"
-          type="text"
+          onChange={e => setUsername(e.target.value)}
+          name='username'
+          type='text'
         ></StyledInput>
         <StyledInput
           value={password}
-          name="password"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
+          name='password'
+          type='password'
+          onChange={e => setPassword(e.target.value)}
         ></StyledInput>
-        <StyledInput type="submit"></StyledInput>
+        <StyledInput type='submit'></StyledInput>
       </StyledForm>
     </FormContainer>
-  );
-};
+  )
+}
 
 const FormContainer = styled.div`
   padding: 12px;
-`;
+`
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const StyledInput = styled.input`
   height: 30px;
   margin-bottom: 12px;
   border-radius: 4px;
   outline: none;
-`;
+`
 
-LoginForm.propTypes = {};
+LoginForm.propTypes = {}
 
-export default LoginForm;
+export default LoginForm

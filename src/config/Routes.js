@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
-} from "react-router-dom";
-import Header from "../components/header";
-import FrontPage from "../screen/frontPage";
-import Login from "../screen/login";
-import PostPage from "../screen/postPage";
-import GlobalStyle from "./GlobalStyle";
+  Redirect
+} from 'react-router-dom'
+import Footer from '../components/footer'
+import Header from '../components/header'
+import FrontPage from '../screen/frontPage'
+import Login from '../screen/login'
+import PostCreate from '../screen/postCreate'
+import PostPage from '../screen/postPage'
+import GlobalStyle from './GlobalStyle'
 
 const Routes = () => {
   return (
@@ -18,24 +20,28 @@ const Routes = () => {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <FrontPage />
           </Route>
-          <Route exact path="/login">
+          <Route exact path='/login'>
             <Login />
           </Route>
-          <PrivateRoute exact path="/post">
+          <PrivateRoute exact path='/post'>
             <PostPage />
           </PrivateRoute>
-          <Redirect to="/"></Redirect>
+          <PrivateRoute exact path='/postCreate'>
+            <PostCreate />
+          </PrivateRoute>
+          <Redirect to='/'></Redirect>
         </Switch>
+        <Footer />
       </Router>
     </div>
-  );
-};
+  )
+}
 
 function PrivateRoute({ children, ...rest }) {
-  const isToken = localStorage.getItem("token");
+  const isToken = localStorage.getItem('token')
   return (
     <Route
       {...rest}
@@ -45,14 +51,14 @@ function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
-              state: { from: location },
+              pathname: '/',
+              state: { from: location }
             }}
           />
         )
       }
     />
-  );
+  )
 }
 
-export default Routes;
+export default Routes
