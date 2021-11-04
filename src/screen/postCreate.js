@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
-import logo from '../logo_reddit.png'
 
 const PostCreate = () => {
   const history = useHistory()
@@ -14,16 +13,6 @@ const PostCreate = () => {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [subreddit, setSubreddit] = useState('')
-  const [image, setImage] = useState('')
-
-  useEffect(() => {
-    /*console.log(title)
-    console.log(desc)
-    console.log(post)
-    console.log(localStorage.getItem('username'))
-    console.log(post.length)*/
-    console.log(subreddit)
-  })
 
   const addPost = (Title, Desc, Sub) => {
     const newPost = {

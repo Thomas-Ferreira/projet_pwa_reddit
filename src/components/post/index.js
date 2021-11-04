@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-//import { uuid } from "uuidv4";
 import logo from '../../logo_reddit.png'
 import { FiArrowUp } from 'react-icons/fi'
 import { FiArrowDown } from 'react-icons/fi'
-import { BsReddit } from 'react-icons/bs'
 
 const Post = () => {
   const [postList, setPostList] = useState([])
@@ -27,8 +25,6 @@ const Post = () => {
   }
 
   useEffect(() => {
-    console.log(postList)
-    //localStorage.setItem('postList', JSON.stringify([postList]))
     setPostList(
       localStorage.getItem('postList')
         ? JSON.parse(localStorage.getItem('postList'))

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../avatar_reddit.svg'
 import { useHistory } from 'react-router'
 
 const FrontPage = () => {
